@@ -1,0 +1,17 @@
+#alias gvim='/mnt/d/Vim/vim81/gvim.exe'
+alias pngcrush="/mnt/c/Users/$USER/Downloads/pngcrush_1_8_11_w64.exe -reduce -brute -ow"
+alias pulseaudio.exe="/mnt/c/Users/$USER/pulseaudio-1.1/bin/pulseaudio.exe"
+#alias startx='/mnt/d/Xming/Xming.exe -multiwindow'
+alias startx='/mnt/d/VcXsrv/vcxsrv.exe -multiwindow'
+alias firefox='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
+#Prevent du from reporting sizes as Infinity, in WSL
+alias du='du --apparent-size'
+alias zzufgdb='gdb -ex "set follow-fork-mode child" --args zzuf'
+alias zzufvalgrind='valgrind --trace-children=yes zzuf'
+#github.com/rondevera/twig
+alias twig='/usr/lib64/ruby/gems/2.5.0/gems/twig-1.7.1/bin/twig'
+#Ardentryst probably runs faster in native Windows than in WSL, where it would have to send all the graphics commands to VcxSrv over a socket (or something like that).
+alias ardentryst="/mnt/c/Python27_32bit/python.exe \"C:\\Users\\$USER\\AppData\\Local\\Packages\\46932SUSE.openSUSELeap42.2_022rs5jcyhyac\\LocalState\\rootfs\\usr\\share\\ardentryst\\ardentryst.pyc\""
+alias gvim.exe='_gvim_exe'
+alias iwyu='include-what-you-use'
+alias VcXsrv='/mnt/d/VcXsrv/xlaunch.exe'
