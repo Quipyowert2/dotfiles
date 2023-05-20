@@ -22,6 +22,8 @@ call plug#begin('~/.vim/plugged')
 " Plug 'mgedmin/chelper.vim'
 Plug 'mgedmin/taghelper.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/tagbar'
+Plug 'wateret/ifdef-heaven.vim'
 
 call plug#end()
 " Show function name in status line using chelper.vim
