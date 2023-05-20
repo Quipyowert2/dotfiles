@@ -13,7 +13,7 @@ set encoding=utf8
 set laststatus=2
 
 " Allow chelper.vim to work on Windows
-if has("win32")  
+if has("win32") && !has('nvim')
 set pythonthreedll=~\AppData\Local\Programs\Python\Python37-32\python37.dll
 endif
 
