@@ -95,7 +95,7 @@ function _gvim_exe {
 }
 #Get out of system32
 case $PWD in
-    /mnt/c/WINDOWS/system32)
+    /mnt/c/[Ww][Ii][Nn][Dd][Oo][Ww][Ss]/[Ss][Yy][Ss][Tt][Ee][Mm]32)
         cd ~
 esac
 
