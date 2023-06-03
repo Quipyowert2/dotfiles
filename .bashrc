@@ -87,7 +87,7 @@ function winpath {
     echo $file;
 }
 function _gvim_exe {
-    local path_to_gvim="/mnt/c/Program Files (x86)/Vim/vim82/gvim.exe"
+    local path_to_gvim="/mnt/d/Program Files (x86)/Vim/vim90/gvim.exe"
     #Don't split the filename
     local IFS=;
     local path_to_file="$(winpath $1)";
