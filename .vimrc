@@ -19,10 +19,19 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Commented out because taghelper is better
 " Plug 'mgedmin/chelper.vim'
+
+" Show current function in statusbar
 Plug 'mgedmin/taghelper.vim'
+
+" Open File quickly like Ctrl-P in VSCode
 Plug 'ctrlpvim/ctrlp.vim'
+
+" File Outline :TagbarToggle
 Plug 'preservim/tagbar'
+
+" Show the chain of #ifdefs leading to this line.
 Plug 'wateret/ifdef-heaven.vim'
 
 call plug#end()
