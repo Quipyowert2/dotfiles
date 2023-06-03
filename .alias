@@ -19,4 +19,4 @@ alias iwyu='include-what-you-use -I/usr/lib64/clang/11.0.1/include'
 alias VcXsrv='/mnt/d/VcXsrv/xlaunch.exe'
 alias cppcheck='/mnt/d/Program\ Files/Cppcheck/cppcheck.exe --enable=warning,performance,portability'
 alias drmemory="$HOME/DrMemory-Linux-2.5.0/bin64/drmemory"
-alias nvim="/mnt/d/Program\ Files/Neovim/bin/nvim-qt.exe"
+alias nvim="_nvim_exe"

@@ -86,12 +86,23 @@ function winpath {
     file="$(echo "$file" | sed 's!/!\\!g')";
     echo $file;
 }
+function _run_vim {
+    local IFS=;
+    local path_to_vim="$1"
+    local path_to_file="$(winpath $2)";
+    "$path_to_vim" "$path_to_file" $3 $4 $5 $6 $7 $8 $9 &
+}
 function _gvim_exe {
     local path_to_gvim="/mnt/d/Program Files (x86)/Vim/vim90/gvim.exe"
     #Don't split the filename
     local IFS=;
-    local path_to_file="$(winpath $1)";
-    "$path_to_gvim" "$path_to_file" $2 $3 $4 $5 $6 $7 $8 $9 &
+    _run_vim $path_to_gvim $*
+}
+function _nvim_exe {
+    local path_to_nvim="/mnt/d/Program Files/Neovim/bin/nvim-qt.exe"
+    #Don't split the filename
+    local IFS=;
+    _run_vim $path_to_nvim $*
 }
 #Get out of system32
 case $PWD in
