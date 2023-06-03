@@ -34,6 +34,12 @@ Plug 'preservim/tagbar'
 " Show the chain of #ifdefs leading to this line.
 Plug 'wateret/ifdef-heaven.vim'
 
+" Code completion for NeoVim
+" https://www.barbarianmeetscoding.com/notes/neovim-plugins/
+if has('nvim')
+Plug 'hrsh7th/nvim-cmp'
+endif
+
 call plug#end()
 " Show function name in status line using chelper.vim
 " set statusline=%<%f\ %h%m%r\ %1*%{CTagInStatusLine()}%*%=%-14.(%l,%c%V%)\ %P
