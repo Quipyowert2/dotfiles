@@ -128,6 +128,8 @@ push_path PATH "$HOME/.local/bin"
 #Include locally generated manpages (cppman)
 push_path MANPATH "$HOME/.local/share/man"
 
+push_path PATH "/usr/lib64"
+
 #DrMemory (Valgrind alternative)
 #GitHub.com/DynamoRIO/drmemory
 
@@ -135,12 +137,15 @@ push_path PATH "$HOME/DrMemory-Linux-2.2.18249-1/bin64"
 #push_path PATH "$HOME/DrMemory-Linux-2.2.0-1/bin64"
 
 #electronjs build tools and cache
-push_path PATH "$HOME/src/depot_tools"
-export GIT_CACHE_PATH="${HOME}/.git_cache"
+#push_path PATH "$HOME/src/depot_tools"
+#export GIT_CACHE_PATH="${HOME}/.git_cache"
 
 #Eclipse 2019-12
 #push_path PATH "$HOME/eclipse-2019-12"
 push_path PATH "$HOME/eclipse/cpp-2020-06/eclipse"
+
+# This fixes twig gem. Otherwise `twig init` doesn't work.
+push_path PATH "$HOME/.gem/ruby/2.5.0/bin"
 
 #Unexpand ~ in $PWD
 function munge_pwd() {
@@ -176,3 +181,13 @@ function popd() {
 #crash with 'Resource Temporarily Unavailable' and
 #causes VcXsrv to hang when Native OpenGL is checked.
 #export LIBGL_ALWAYS_INDIRECT=1
+
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
+
+fortune bible
+. "$HOME/.cargo/env" #for Rust
+[[ -s ~/.twig/twig-completion.bash ]] && source ~/.twig/twig-completion.bash
