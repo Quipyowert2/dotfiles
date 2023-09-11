@@ -121,7 +121,10 @@ export LESS=-asrMMRix8
 
 #https://trzeci.eu/configure-graphic-and-sound-on-wsl
 #https://github.com/Microsoft/WSL/issues/486#issuecomment-235655704
-export PULSE_SERVER=tcp:localhost
+if test -z "${PULSE_SERVER}";then
+    #Conditional on whether the variable is set, so that it doesn't break sound in WSL2
+    export PULSE_SERVER=tcp:localhost
+fi
 #Avoid adding a path to $PATH twice
 function push_path() {
     path_to_push="$2"
