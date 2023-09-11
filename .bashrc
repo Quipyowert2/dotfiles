@@ -158,8 +158,11 @@ push_path PATH "$HOME/DrMemory-Linux-2.2.18249-1/bin64"
 #push_path PATH "$HOME/eclipse-2019-12"
 push_path PATH "$HOME/eclipse/cpp-2020-06/eclipse"
 
-# This fixes twig gem. Otherwise `twig init` doesn't work.
-push_path PATH "$HOME/.gem/ruby/2.5.0/bin"
+#for rondevera/twig
+push_path PATH "$HOME/.gem/ruby/3.2.0/gems/twig-1.7.1/bin/twig"
+
+#for Ruby 3
+push_path PATH "/snap/bin"
 
 #Unexpand ~ in $PWD
 function munge_pwd() {
@@ -250,7 +253,7 @@ OSH_THEME="agnoster"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.  One of the following values can
