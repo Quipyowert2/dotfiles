@@ -19,6 +19,11 @@
   #Speed up autotools ./configure
   wsl.interop.includePath = false;
 
+  # I use a custom resolv.conf so I don't want WSL generating it for me.
+  # The generated resolv.conf breaks networking in WSL even though the host networking works.
+  wsl.wslConf.network.generateResolvConf = false;
+  networking.resolvconf.enable = false; # Turn off resolvconf systemd service
+
   #Enable OpenGL
   hardware.graphics.enable = true;
 
