@@ -44,6 +44,12 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
+    # github.com/Quipyowert2/dotfiles
+    ".bashrc".source = ~/src/dotfiles/.bashrc;
+    ".alias".source = ~/src/dotfiles/.alias;
+    ".vimrc".source = ~/src/dotfiles/.vimrc;
+    ".zshrc".source = ~/src/dotfiles/.zshrc;
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
