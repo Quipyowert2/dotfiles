@@ -40,18 +40,32 @@
   environment.systemPackages = with pkgs; [
     #Fuzzing
     aflplusplus
+    patchelf # To run NixOS executables in Docker
+
+    #Building
     clang
+    lld #Fast linker
     gcc
+    cmake
+    scons
+    gnumake
+    autoconf
+    automake
 
     #Utilities
     silver-searcher
     git
     neovim
+    wget # VSCode needs this to download updates
+    universal-ctags #Jump to functions in (n)vim
+
+    #Programming languages
     python3
+    ruby #for rondevera/twig
 
     #Static analysis
     ##Cyclomatic complexity
-    #python3Packages.lizard
+    python3Packages.lizard
     flawfinder
   ];
 }
