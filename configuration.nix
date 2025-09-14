@@ -16,6 +16,10 @@
   wsl.enable = true;
   wsl.defaultUser = "nixos";
 
+  #Integrate with Docker Desktop on Windows
+  wsl.docker-desktop.enable = true;
+  users.users.nixos.extraGroups = [ "docker" ];
+
   #Speed up autotools ./configure
   wsl.interop.includePath = false;
 
