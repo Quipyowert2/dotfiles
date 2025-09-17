@@ -79,4 +79,13 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  # The following seems to have no effect?
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [ ctrlp-vim tagbar nvim-cmp ];
+    extraConfig = ''
+      source ~/.vimrc
+    '';
+  };
 }
