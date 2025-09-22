@@ -130,12 +130,12 @@ function push_path() {
     path_to_push="$2"
     #echo ${!1} in bash
     #echo "$"$1
-    if echo ${!1} | grep -F $2 >& /dev/null;then
+    if echo ${!1} | grep -F "$2" >& /dev/null;then
         : #nothing
     else
         # was "export $1+=:$2"
         # was "export $1=$$1:$2"
-        export $1+=:$2
+        export $1+=:"$2"
     fi
 }
 push_path PATH "$HOME/.local/bin"
