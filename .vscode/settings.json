@@ -1,0 +1,113 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "terminal.integrated.profiles.windows": {
+		"PowerShell": {
+			"source": "PowerShell",
+			"icon": "terminal-powershell"
+		},
+		"Command Prompt": {
+			"path": [
+				"${env:windir}\\Sysnative\\cmd.exe",
+				"${env:windir}\\System32\\cmd.exe"
+			],
+			"args": [],
+			"icon": "terminal-cmd"
+		},
+		"Git Bash": {
+			"source": "Git Bash"
+		},
+        "MSYS2": {
+            "path": "D:\\msys64\\usr\\bin\\bash.exe",
+            "args": [
+              "--login",
+              "-i"
+            ],
+            "env": {
+              "MSYSTEM": "MINGW64",
+              "CHERE_INVOKING": "1"
+            }
+        }
+	},
+	"[python]": {
+		"editor.formatOnType": true
+	},
+	"c-cpp-flylint.cppcheck.executable": "D:\\Program Files\\Cppcheck\\cppcheck.exe",
+	"c-cpp-flylint.cppcheck.inconclusive": true,
+	"c-cpp-flylint.excludeFromWorkspacePaths": [
+		"${workspaceFolder}/vcpkg_installed"
+	],
+	"c-cpp-flylint.flexelint.enable": false,
+	"c-cpp.intelliSenseCachePath": "D:\\Program Files\\Microsoft VS Code\\vscode-cpptools",
+	"perlnavigator.perlimportsLintEnabled": true,
+	"perlnavigator.perlimportsTidyEnabled": true,
+	"HuggingFaceCode.temperature": null,
+	"python.analysis.packageIndexDepths": [
+
+		{
+			"name": "sklearn",
+			"depth": 2
+		},
+		{
+			"name": "matplotlib",
+			"depth": 2
+		},
+		{
+			"name": "scipy",
+			"depth": 2
+		},
+		{
+			"name": "django",
+			"depth": 2
+		},
+		{
+			"name": "flask",
+			"depth": 2
+		}
+	],
+	"python.defaultInterpreterPath": "C:\\python311\\python3.11.exe",
+	"python.experiments.enabled": false,
+	"c-cpp-flylint.language": "c++",
+	"c-cpp-flylint.standard": [
+		"c++20"
+	],
+	"vscodeGoogleTranslate.preferredLanguage": "English",
+	"security.allowedUNCHosts": [
+		"wsl.localhost"
+	],
+	"midas.rr": "/usr/bin/rr",
+	"remote.autoForwardPortsSource": "hybrid",
+	"c-cpp-flylint.cppcheck.standard": [],
+	"cmake.pinnedCommands": [
+		"workbench.action.tasks.configureTaskRunner",
+		"workbench.action.tasks.runTask"
+	],
+	// Deprecated HuggingFace extension llm-vscode
+	"llm.configTemplate": "hf/deepseek-ai/deepseek-coder-6.7b-base",
+	"llm.modelId": "deepseek-ai/deepseek-coder-6.7b-base",
+	"llm.backend": "huggingface",
+	"llm.url": null,
+	"llm.fillInTheMiddle.enabled": true,
+	"llm.fillInTheMiddle.prefix": "<｜fim▁begin｜>",
+	"llm.fillInTheMiddle.suffix": "<｜fim▁hole｜>",
+	"llm.fillInTheMiddle.middle": "<｜fim▁end｜>",
+	"llm.contextWindow": 1024,
+	"llm.tokensToClear": [
+		"<|EOT|>"
+	],
+	"llm.tokenizer": {
+		"repository": "deepseek-ai/deepseek-coder-6.7b-base"
+	},
+	"llm.requestBody": {
+		"parameters": {
+			"max_new_tokens": 128,
+			"temperature": 0.1,
+			"top_p": 0.95
+		}
+	},
+	"c-cpp-flylint.debug": true,
+	"github.copilot.nextEditSuggestions.enabled": true,
+	"editor.multiCursorModifier": "ctrlCmd"
+}
+
