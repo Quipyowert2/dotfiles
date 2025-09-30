@@ -39,7 +39,7 @@
 		"${workspaceFolder}/vcpkg_installed"
 	],
 	"c-cpp-flylint.flexelint.enable": false,
-	"c-cpp.intelliSenseCachePath": "D:\\Program Files\\Microsoft VS Code\\vscode-cpptools",
+	"C_Cpp.default.browse.databaseFilename": "D:\\Program Files\\Microsoft VS Code\\vscode-cpptools",
 	"perlnavigator.perlimportsLintEnabled": true,
 	"perlnavigator.perlimportsTidyEnabled": true,
 	"HuggingFaceCode.temperature": null,
