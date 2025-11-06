@@ -99,7 +99,7 @@ function _gvim_exe {
     _run_vim $path_to_gvim $*
 }
 function _nvim_exe {
-    local path_to_nvim="/mnt/d/Program Files/Neovim/bin/nvim-qt.exe"
+    local path_to_nvim="/mnt/d/Program Files/Neovide/Neovide.exe"
     #Don't split the filename
     local IFS=;
     _run_vim $path_to_nvim $*
