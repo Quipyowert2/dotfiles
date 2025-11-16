@@ -49,6 +49,7 @@
     ".alias".source = ~/src/dotfiles/.alias;
     ".vimrc".source = ~/src/dotfiles/.vimrc;
     ".zshrc".source = ~/src/dotfiles/.zshrc;
+    ".bash_profile".text = ''source ~/.bashrc'';
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
