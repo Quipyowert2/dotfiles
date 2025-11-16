@@ -13,6 +13,21 @@
     <nixos-wsl/modules>
   ];
 
+  #HACK to reduce memory usage of nixpkgs-review
+  nixpkgs.overlays = [
+    (final: prev: {
+      nixpkgs-review = prev.nixpkgs-review.overrideAttrs (old: {
+        version = "3.5.1";
+        src = pkgs.fetchFromGitHub {
+          owner = "Mic92";
+          repo = "nixpkgs-review";
+          rev = "pull/568/head";
+          hash = "sha256-HC2HyAHRgNHDOHUSFzeoYLOLD3ltX+EMWE+kr5RLx8c=";
+        };
+      });
+    })
+  ];
+
   wsl.enable = true;
   wsl.defaultUser = "nixos";
 
@@ -75,5 +90,7 @@
     ##Cyclomatic complexity
     python3Packages.lizard
     flawfinder
+
+    nixpkgs-review
   ];
 }
