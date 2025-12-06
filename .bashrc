@@ -164,6 +164,8 @@ push_path PATH "$HOME/.gem/ruby/3.2.0/gems/twig-1.7.1/bin/twig"
 #for Ruby 3
 push_path PATH "/snap/bin"
 
+push_path PATH "/mnt/c/Users/nathan/AppData/Local/Programs/Microsoft VS Code/bin"
+
 #Unexpand ~ in $PWD
 function munge_pwd() {
     local home_to_escape="$HOME"
