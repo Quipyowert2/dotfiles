@@ -159,7 +159,7 @@ push_path PATH "$HOME/DrMemory-Linux-2.2.18249-1/bin64"
 push_path PATH "$HOME/eclipse/cpp-2020-06/eclipse"
 
 #for rondevera/twig
-push_path PATH "$HOME/.gem/ruby/3.2.0/gems/twig-1.7.1/bin/twig"
+push_path PATH "$(ruby -e 'puts Gem::Specification.find_by_name("twig").full_gem_path')/bin"
 
 #for Ruby 3
 push_path PATH "/snap/bin"
