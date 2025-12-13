@@ -49,6 +49,8 @@
   #Necessary for VSCode
   programs.nix-ld.enable = true;
 
+  documentation.dev.enable = true;
+
   nix.extraOptions = ''
   experimental-features = nix-command flakes
   '';
@@ -74,6 +76,9 @@
     gnumake
     autoconf
     automake
+
+    man-pages
+    man-pages-posix
 
     #Utilities
     silver-searcher
