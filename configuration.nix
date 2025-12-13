@@ -62,6 +62,7 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
+  environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
     #Fuzzing
     aflplusplus
@@ -83,17 +84,27 @@
     #Utilities
     silver-searcher
     git
+    lazygit # Easily view git stashes, history, commits, etc. without having to type a bunch of commands
     neovim
+    xclip # Clipboard support for Neovim
     wget # VSCode needs this to download updates
     universal-ctags #Jump to functions in (n)vim
+    valgrind # Memory debugger, thread debugging, profiling, etc.
+
+    #Debuggers
+    gdb
+    rr #Record and replay debugger
 
     #Programming languages
-    python3
+    (python3.withPackages (ps: with ps; [ gitpython lizard ]))
     ruby #for rondevera/twig
+
+    # Make `import git` work in NixPkgs
+    #python3Packages.gitpython
 
     #Static analysis
     ##Cyclomatic complexity
-    python3Packages.lizard
+    #python3Packages.lizard
     flawfinder
 
     nixpkgs-review
