@@ -34,6 +34,19 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    #Fuzzing
+    pkgs.aflplusplus
+    pkgs.docker
+
+    #Productivity
+    pkgs.git
+    pkgs.fzf #Quick Ctrl-R / Ctrl-T search
+    pkgs.lazygit #Git repo overview TUI
+    pkgs.ruby #for rondevera/twig
+    pkgs.ripgrep #Like silver searcher but faster
+    pkgs.tldr #Quick usage tips for a command
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -84,9 +97,15 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    plugins = with pkgs.vimPlugins; [ ctrlp-vim tagbar nvim-cmp ];
+    plugins = with pkgs.vimPlugins; [ ctrlp-vim tagbar nvim-cmp vim-plug ];
     extraConfig = ''
       source ~/.vimrc
     '';
+  };
+  programs.git = {
+    enable = true;
+    settings = {
+      core.editor = "vim";
+    };
   };
 }

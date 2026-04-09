@@ -211,6 +211,7 @@ fortune bible
 . "$HOME/.cargo/env" #for Rust
 [[ -s ~/.twig/twig-completion.bash ]] && source ~/.twig/twig-completion.bash
 
+eval "$(fzf --bash)"
 # -----------------------------------------------
 #         Oh my Bash! below this comment
 # -----------------------------------------------
@@ -221,7 +222,7 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH='/mnt/d/Linux_home/nathan/.oh-my-bash'
+export OSH='/home/nathan/.oh-my-bash'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -309,6 +310,7 @@ aliases=(
 plugins=(
   git
   bashmarks
+  fzf
 )
 
 # Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)
