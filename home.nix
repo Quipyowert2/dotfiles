@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
+  home.username = "nathan";
+  home.homeDirectory = "/home/nathan";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -46,6 +46,9 @@
     pkgs.ruby #for rondevera/twig
     pkgs.ripgrep #Like silver searcher but faster
     pkgs.tldr #Quick usage tips for a command
+    pkgs.universal-ctags #Maintained ctags implementation
+    pkgs.htop # Bettter top
+    pkgs.nixd # Nix language support in LSP-aware editors
 
   ];
 
@@ -58,11 +61,12 @@
     # ".screenrc".source = dotfiles/screenrc;
 
     # github.com/Quipyowert2/dotfiles
-    ".bashrc".source = ~/src/dotfiles/.bashrc;
-    ".alias".source = ~/src/dotfiles/.alias;
-    ".vimrc".source = ~/src/dotfiles/.vimrc;
-    ".zshrc".source = ~/src/dotfiles/.zshrc;
+    ".bashrc".source = "~/src/dotfiles/.bashrc";
+    ".alias".source = "~/src/dotfiles/.alias";
+    ".vimrc".source = "~/src/dotfiles/.vimrc";
+    ".zshrc".source = "~/src/dotfiles/.zshrc";
     ".bash_profile".text = ''source ~/.bashrc'';
+    ".config/nvim/init.lua".source = "~/src/dotfiles/init.lua";
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -98,9 +102,6 @@
     enable = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [ ctrlp-vim tagbar nvim-cmp vim-plug ];
-    extraConfig = ''
-      source ~/.vimrc
-    '';
   };
   programs.git = {
     enable = true;
