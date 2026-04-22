@@ -159,7 +159,7 @@ push_path PATH "$HOME/DrMemory-Linux-2.2.18249-1/bin64"
 push_path PATH "$HOME/eclipse/cpp-2020-06/eclipse"
 
 #for rondevera/twig
-push_path PATH "$HOME/.gem/ruby/3.2.0/gems/twig-1.7.1/bin/twig"
+push_path PATH "$(ruby -e 'puts Gem.user_dir')/bin"
 
 #for Ruby 3
 push_path PATH "/snap/bin"
@@ -219,7 +219,7 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH='/mnt/d/Linux_home/nathan/.oh-my-bash'
+export OSH="$HOME/.oh-my-bash"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
