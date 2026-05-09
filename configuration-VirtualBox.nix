@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -14,12 +14,32 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Temporary fix for CVE-2026-31431 "Copy Fail"
+  boot.kernelPackages = lib.mkIf (lib.versionOlder pkgs.linux.version "6.18.22") (
+    lib.mkDefault pkgs.linuxPackages_6_18
+  );
+
+  # Fix Dirty Frag bug
+  boot.extraModprobeConfig = lib.concatMapStringsSep "\n" (x: "install ${x} /bin/false") [
+    # Copy Fail — currently loaded, block future loads + block siblings
+    "af_alg" # af_alg itself
+    "algif_aead"
+    # Dirty Frag 
+    "esp4"
+    "esp6"
+    "rxrpc"
+  ];
+
+  # Temporarily switch to Lix to fix CVE-2026-39860
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
   #Enable guest additions
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.dragAndDrop = true;
   virtualisation.virtualbox.guest.clipboard = true;
   virtualisation.docker.enable = true;
 
+  hardware.graphics.enable = true;
   services.displayManager.defaultSession = "plasmax11";
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -90,7 +110,7 @@
   users.users.nathan = {
     isNormalUser = true;
     description = "Nathan Mills";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "vboxsf" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -110,7 +130,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  linuxKernel.packages.linux_6_12.virtualboxGuestAdditions
+  linuxKernel.packages.linux_6_18.virtualboxGuestAdditions
   vim
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
