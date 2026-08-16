@@ -8,10 +8,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    # include NixOS-WSL modules
-    <nixos-wsl/modules>
-  ];
+#  imports = [
+#    # include NixOS-WSL modules
+#    <nixos-wsl/modules>
+#  ];
 
   #HACK to reduce memory usage of nixpkgs-review
   nixpkgs.overlays = [
