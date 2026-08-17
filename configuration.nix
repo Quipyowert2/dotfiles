@@ -45,6 +45,7 @@
 
   #Enable OpenGL
   hardware.graphics.enable = true;
+  environment.sessionVariables.LD_LIBRARY_PATH = [ "/usr/lib/wsl/lib" "/run/opengl-driver/lib" ];
 
   #Necessary for VSCode
   programs.nix-ld.enable = true;
