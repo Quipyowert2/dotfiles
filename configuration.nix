@@ -29,19 +29,20 @@
   ];
 
   wsl.enable = true;
-  wsl.defaultUser = "nixos";
+  wsl.defaultUser = "nathan";
 
   #Integrate with Docker Desktop on Windows
-  wsl.docker-desktop.enable = true;
-  users.users.nixos.extraGroups = [ "docker" ];
+  #wsl.docker-desktop.enable = true;
+  #users.users.nathan.extraGroups = [ "docker" ];
 
   #Speed up autotools ./configure
   wsl.interop.includePath = false;
 
   # I use a custom resolv.conf so I don't want WSL generating it for me.
   # The generated resolv.conf breaks networking in WSL even though the host networking works.
-  wsl.wslConf.network.generateResolvConf = false;
-  networking.resolvconf.enable = false; # Turn off resolvconf systemd service
+#  wsl.wslConf.network.generateResolvConf = false;
+#  networking.resolvconf.enable = false; # Turn off resolvconf systemd service
+  networking.hostName = "nixos";
 
   #Enable OpenGL
   hardware.graphics.enable = true;
@@ -56,6 +57,10 @@
   experimental-features = nix-command flakes
   '';
   nix.package = pkgs.lixPackageSets.stable.lix;
+
+  fonts.packages = [
+    pkgs.mplus-outline-fonts.osdnRelease
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -83,8 +88,11 @@
     man-pages
     man-pages-posix
 
+    #Real-time tree view of NixOS updates. Needs flakes enabled to work
+    nh
+
     #Utilities
-    silver-searcher
+    ripgrep
     git
     lazygit # Easily view git stashes, history, commits, etc. without having to type a bunch of commands
     neovim

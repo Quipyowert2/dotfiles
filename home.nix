@@ -61,12 +61,12 @@
     # ".screenrc".source = dotfiles/screenrc;
 
     # github.com/Quipyowert2/dotfiles
-    ".bashrc".source = "~/src/dotfiles/.bashrc";
-    ".alias".source = "~/src/dotfiles/.alias";
-    ".vimrc".source = "~/src/dotfiles/.vimrc";
-    ".zshrc".source = "~/src/dotfiles/.zshrc";
+    ".bashrc".source = ~/src/dotfiles/.bashrc;
+    ".alias".source = ~/src/dotfiles/.alias;
+    ".vimrc".source = ~/src/dotfiles/.vimrc;
+    ".zshrc".source = ~/src/dotfiles/.zshrc;
     ".bash_profile".text = ''source ~/.bashrc'';
-    ".config/nvim/init.lua".source = "~/src/dotfiles/init.lua";
+    ".config/nvim/init.lua".source = ~/src/dotfiles/init.lua;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
