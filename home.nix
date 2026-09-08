@@ -35,6 +35,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    pkgs.nh
+
     #Fuzzing
     pkgs.aflplusplus
     pkgs.docker
@@ -61,12 +63,12 @@
     # ".screenrc".source = dotfiles/screenrc;
 
     # github.com/Quipyowert2/dotfiles
-    ".bashrc".source = ~/src/dotfiles/.bashrc;
-    ".alias".source = ~/src/dotfiles/.alias;
-    ".vimrc".source = ~/src/dotfiles/.vimrc;
-    ".zshrc".source = ~/src/dotfiles/.zshrc;
+    ".bashrc".source = ./.bashrc;
+    ".alias".source = ./.alias;
+    ".vimrc".source = ./.vimrc;
+    ".zshrc".source = ./.zshrc;
     ".bash_profile".text = ''source ~/.bashrc'';
-    ".config/nvim/init.lua".source = ~/src/dotfiles/init.lua;
+    ".config/nvim/init.lua".source = ./init.lua;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -101,6 +103,8 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    sideloadInitLua = true;
+    vimAlias = true;
     plugins = with pkgs.vimPlugins; [ ctrlp-vim tagbar nvim-cmp vim-plug ];
   };
   programs.git = {
