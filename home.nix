@@ -99,11 +99,15 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.fzf.enable = true;
+  programs.fzf.enableBashIntegration = true;
   # The following seems to have no effect?
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     sideloadInitLua = true;
+    withPython3 = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [ ctrlp-vim tagbar nvim-cmp vim-plug ];
   };
