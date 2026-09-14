@@ -45,7 +45,13 @@
     pkgs.git
     pkgs.fzf #Quick Ctrl-R / Ctrl-T search
     pkgs.lazygit #Git repo overview TUI
-    pkgs.ruby #for rondevera/twig
+    (pkgs.bundlerEnv { #for rondevera/twig
+      name = "ruby-env";
+      ruby = pkgs.ruby;
+      gemfile= ./pkgs/twig/Gemfile;
+      lockfile= ./pkgs/twig/Gemfile.lock;
+      gemset = ./pkgs/twig/gemset.nix;
+    })
     pkgs.ripgrep #Like silver searcher but faster
     pkgs.tldr #Quick usage tips for a command
     pkgs.universal-ctags #Maintained ctags implementation
