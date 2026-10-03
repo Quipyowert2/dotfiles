@@ -1,5 +1,29 @@
 { config, pkgs, ... }:
 
+let
+  twig = pkgs.buildRubyGem {
+    name = "twig-1.7.1";
+    gemName = "twig";
+    version = "1.7.1";
+    source = {
+      remotes = [ "https://rubygems.org" ];
+      sha256 = "sha256-XZadbVU6Ls9VAlnEjTYD35CUPAmvLJiSArg8wmkLOo8=";
+      type = "gem";
+    };
+
+    propagatedBuildInputs = with pkgs.rubyPackages; [
+      json
+      launchy
+    ];
+
+    # Relax strict unmaintained version bounds (~> 1.8.2 and ~> 2.3.0)
+    postInstall = ''
+      # Remove or relax the strict '~> 1.8.2' json dependency in twig's installed gemspec
+      sed -i 's/~> 1.8.2/>= 1.8.2/g' $out/lib/ruby/gems/*/specifications/twig-1.7.1.gemspec
+      sed -i 's/~> 2.4/>= 2.4/g' $out/lib/ruby/gems/*/specifications/twig-1.7.1.gemspec
+    '';
+  };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -45,13 +69,14 @@
     pkgs.git
     pkgs.fzf #Quick Ctrl-R / Ctrl-T search
     pkgs.lazygit #Git repo overview TUI
-    (pkgs.bundlerEnv { #for rondevera/twig
-      name = "ruby-env";
-      ruby = pkgs.ruby;
-      gemfile= ./pkgs/twig/Gemfile;
-      lockfile= ./pkgs/twig/Gemfile.lock;
-      gemset = ./pkgs/twig/gemset.nix;
-    })
+    twig
+    #(pkgs.bundlerEnv { #for rondevera/twig
+    #  name = "ruby-env";
+    #  ruby = pkgs.ruby;
+    #  gemfile= ./pkgs/twig/Gemfile;
+    #  lockfile= ./pkgs/twig/Gemfile.lock;
+    #  gemset = ./pkgs/twig/gemset.nix;
+    #})
     pkgs.ripgrep #Like silver searcher but faster
     pkgs.tldr #Quick usage tips for a command
     pkgs.universal-ctags #Maintained ctags implementation
