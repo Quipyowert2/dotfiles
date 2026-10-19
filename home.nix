@@ -35,15 +35,12 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    pkgs.nh
-
     #Fuzzing
     pkgs.aflplusplus
     pkgs.docker
 
     #Productivity
     pkgs.git
-    pkgs.fzf #Quick Ctrl-R / Ctrl-T search
     pkgs.lazygit #Git repo overview TUI
     pkgs.ruby #for rondevera/twig
     pkgs.ripgrep #Like silver searcher but faster
@@ -100,7 +97,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.fzf.enable = true;
+  programs.fzf.enable = true; #Quick Ctrl-R / Ctrl-T search
   programs.fzf.enableBashIntegration = true;
   # The following seems to have no effect?
   programs.neovim = {
@@ -116,5 +113,9 @@
     settings = {
       core.editor = "vim";
     };
+  };
+  programs.nh = {
+    enable = true;
+    flake = "/home/nathan/src/dotfiles/flake.nix";
   };
 }
